@@ -1,0 +1,9 @@
+**/.DS_Store
+**/validate.xml
+.idea
+.metadata
+**/node_modules
+**/sftp-config.json*
+**/*.xlsx
+**/**.iml
+**.log
