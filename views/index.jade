@@ -3,4 +3,41 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  
+  a.btn.btn-warning(href='#',role='button') Link
+  div.container
+    div.row.show-grid
+      div.col-xs-4 .col-xs-4
+      div.col-xs-4 .col-xs-4
+      div.col-xs-4 .col-xs-4
+    div.row
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+    div.row
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      div.col-md-1 .col-md-1
+      span.glyphicon.glyphicon-search(aria-hidden='true')
+      button.btn.btn-default.btn-lg(type='button')
+        span.glyphicon.glyphicon-star(aria-hidden='true') Star
+    table.table.table-bordered
+      tr.active
+        td abc
+        td abd
+      tr.success
+        td abc
+        td abd
+      tr.info
+        td abc
+        td abd
+    h1 h1.bootstrap heading
+    input(type='checkbox' name='agreement' checked)
+    a(href='google.com') Google
