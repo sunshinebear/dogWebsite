@@ -59,3 +59,27 @@ block content
       div(style="float:left;width:9rem;border:solid 1px green;font-size:2rem") ;font-size:1rem
       div(style="float:left;width:9rem;border:solid 1px green;font-size:2rem") ;font-size:2rem
       div(style="float:left;width:9rem;border:solid 1px green;font-size:2rem") ;font-size:3rem
+    div(id="testImg" style="border:9px solid red")
+      img(src="/images/21.jpg")
+block scripts
+  script.
+    function  test(){
+      console.log("load");
+      console.log(document.readyState);
+      console.log(document.querySelector("#testImg").scrollWidth);
+      console.log(document.querySelector("#testImg").scrollHeight);
+      window.removeEventListener('load', test);
+    }
+    function testcase() {
+      //document.removeEventListener('DOMContentLoaded', testcase);
+      console.log("DOMContentLoaded");
+      console.log(document.readyState);
+      console.log(document.querySelector("#testImg").scrollWidth);
+      console.log(document.querySelector("#testImg").scrollHeight)
+    }
+    function resize(){
+      console.log('resize');
+    }
+    window.addEventListener('load', test);
+    document.addEventListener('DOMContentLoaded', testcase);
+    window.addEventListener('resize',resize);

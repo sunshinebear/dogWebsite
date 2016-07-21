@@ -1,0 +1,56 @@
+- var root='/public'
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title 读秒 - 个人无抵押信用贷款
+        meta(name='viewport', content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-status-bar-style', content='black')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='format-detection', content='telephone=no, address=no')
+        meta(name='handheldFriendly', content='true')
+        meta(name='mobileOptimized', content='width')
+        meta(name='flexible', content='maximum-dpr=2')
+        meta(name='keywords', content='读秒,个人贷款,信用贷款,无抵押贷款,小额贷款,快速贷款,手机贷款,互联网金融,分期,买房贷款,P2P借贷平台,积木贷款,极速贷,拍拍贷,宜人贷,融360')
+        meta(name='description', content='读秒是积木盒子推出的针对工薪阶层的、小额线上信用贷款，申请额度在1000元~20000元，日利率最低0.026%，线上申请、无抵押、放款速度快，立即借款，享受超低利率现金分期服务。')
+        link(rel='stylesheet', href='/stylesheets/user.css')
+    body
+        block content
+            div touchstart,touchmove,touchend,touchcancel
+            div#block
+        block scripts
+        script.
+            // 获取节点
+            var block = document.getElementById("block");
+            var oW, oH;
+            // 绑定touchstart事件
+            block.addEventListener("touchstart", function (e) {
+                console.log(e);
+                var touches = e.touches[0];
+                oW = touches.clientX - block.offsetLeft;
+                oH = touches.clientY - block.offsetTop;
+                //阻止页面的滑动默认事件
+                document.addEventListener("touchmove", defaultEvent, false);
+            }, false)
+
+            block.addEventListener("touchmove", function (e) {
+                var touches = e.touches[0];
+                var oLeft = touches.clientX - oW;
+                var oTop = touches.clientY - oH;
+                if (oLeft < 0) {
+                    oLeft = 0;
+                } else if (oLeft > document.documentElement.clientWidth - block.offsetWidth) {
+                    oLeft = (document.documentElement.clientWidth - block.offsetWidth);
+                }
+                block.style.left = oLeft + "px";
+                block.style.top = oTop + "px";
+            }, false);
+
+            block.addEventListener("touchend", function () {
+                document.removeEventListener("touchmove", defaultEvent, false);
+            }, false);
+            function defaultEvent(e) {
+                e.preventDefault();
+            }
+
